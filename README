@@ -48,3 +48,17 @@ sudo docker run  -p 9090:9090 -v /home/ubuntu/prometheus-docker.yml:/etc/prometh
 sudo docker ps 
 
 Open Chrome http://PublicIPv4DNS:9090 
+
+
+-------------------------------------------------
+Docker - Prometheus Custom Installation 
+-------------------------------------------------
+mkdir USERNAME
+cd USERNAME/
+wget https://github.com/prometheus/prometheus/releases/download/v2.36.1/prometheus-2.36.1.linux-amd64.tar.gz
+tar xvfz prometheus-2.36.1.linux-amd64.tar.gz
+cd prometheus-2.36.1.linux-amd64/
+wget https://raw.githubusercontent.com/Jaibw/prometheus/master/prometheus-local.yml -O prometheus.yml
+./prometheus  --config.file="prometheus.yml" --web.listen-address="0.0.0.0:PORT"
+
+Open Chrome http://PublicIPv4DNS:PORT 
