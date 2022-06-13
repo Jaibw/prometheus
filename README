@@ -37,4 +37,4 @@ sudo docker ps
 
 Open Chrome http://PublicIPv4DNS:9090 
 
-http://ec2-13-56-224-60.us-west-1.compute.amazonaws.com:9090 
+
