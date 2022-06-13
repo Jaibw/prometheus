@@ -19,3 +19,22 @@ scrape_duration_seconds      # Graph and console
 scrape_duration_seconds{instance="172.31.24.235:9100"}   # Graph and console 
 scrape_duration_seconds{instance="172.31.24.235:9100"}[5m]   # Console only 
 rate(scrape_duration_seconds{instance="172.31.24.235:9100"}[5m])  # Graph and console 
+
+
+-----------------------------------
+Docker Installation 
+-----------------------------------
+sudo apt update 
+sudo apt install -y ca-certificates curl gnupg lsb-release
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo docker run hello-world
+sudo docker run  -p 9090:9090 -d --name=prometheus prom/prometheus
+sudo docker ps 
+
+Open Chrome http://PublicIPv4DNS:9090 
+
+http://ec2-13-56-224-60.us-west-1.compute.amazonaws.com:9090 
