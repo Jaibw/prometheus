@@ -1,0 +1,39 @@
+global:
+  scrape_interval:     15s  
+  evaluation_interval: 15s   
+  external_labels:
+      monitor: 'example'
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets: ['localhost:9093']
+rule_files:
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+    scrape_timeout: 5s
+    static_configs:
+      - targets: ['localhost:9090']
+  - job_name: node
+    static_configs:
+      - targets: ['localhost:9100']
+      - targets: ['172.31.25.125:9100']
+      - targets: ['172.31.28.221:9100']
+      - targets: ['172.31.20.124:9100']
+      - targets: ['172.31.30.220:9100']
+      - targets: ['172.31.21.158:9100']
+      - targets: ['172.31.29.146:9100']
+      - targets: ['172.31.26.19:9100']
+      - targets: ['172.31.16.13:9100']
+      - targets: ['172.31.21.144:9100']
+      - targets: ['172.31.29.214:9100']
+      - targets: ['172.31.21.156:9100']
+      - targets: ['172.31.19.211:9100']
+      - targets: ['172.31.21.19:9100']
+      - targets: ['172.31.21.67:9100']
+      - targets: ['172.31.20.69:9100']
+      - targets: ['172.31.24.65:9100']
+      - targets: ['172.31.25.73:9100']
+      - targets: ['172.31.24.235:9100']
+      - targets: ['172.31.29.38:9100']
+      - targets: ['172.31.30.199:9100']
