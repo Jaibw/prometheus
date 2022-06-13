@@ -37,4 +37,14 @@ sudo docker ps
 
 Open Chrome http://PublicIPv4DNS:9090 
 
+-------------------------------------------------
+Docker - Prometheus Custom Configuration 
+-------------------------------------------------
+sudo docker stop prometheus 
+sudo docker rm prometheus 
+wget https://raw.githubusercontent.com/Jaibw/prometheus/master/prometheus-docker.yml
+cat /home/ubuntu/prometheus-docker.yml
+sudo docker run  -p 9090:9090 -v /home/ubuntu/prometheus-docker.yml:/etc/prometheus/prometheus.yml -d --name=prometheus prom/prometheus
+sudo docker ps 
 
+Open Chrome http://PublicIPv4DNS:9090 
