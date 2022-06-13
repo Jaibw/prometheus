@@ -1,0 +1,21 @@
+sudo apt update 
+sudo apt install prometheus
+sudo service prometheus status                 # press q for exit 
+sudo service prometheus-node-exporter status   # press q for exit 
+
+sudo wget https://raw.githubusercontent.com/Jaibw/prometheus/master/prometheus.yml -O /etc/prometheus/prometheus.yml
+sudo cat /etc/prometheus/prometheus.yml
+sudo service prometheus restart 
+
+Open Chrome http://PublicIPv4DNS:9090
+
+
+sudo apt update  && sudo apt install -y prometheus-node-exporter
+sudo service prometheus-node-exporter status
+
+http://ec2-54-193-224-5.us-west-1.compute.amazonaws.com:9090/graph
+
+scrape_duration_seconds      # Graph and console 
+scrape_duration_seconds{instance="172.31.24.235:9100"}   # Graph and console 
+scrape_duration_seconds{instance="172.31.24.235:9100"}[5m]   # Console only 
+rate(scrape_duration_seconds{instance="172.31.24.235:9100"}[5m])  # Graph and console 
