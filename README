@@ -80,3 +80,13 @@ sudo service grafana-server status
 Open Chrome http://PublicIPv4DNS:3000
 User: admin
 Password: admin 
+
+
+
+
+-------------------------------------------------
+Docker - Grafana 
+-------------------------------------------------
+sudo docker run -d --name=grafana-NAME -p PORT:3000 grafana/grafana-enterprise
+sudo docker ps 
+Open Chrome http://PublicIPv4DNS:PORT 
