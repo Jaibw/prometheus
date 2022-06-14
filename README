@@ -62,3 +62,21 @@ wget https://raw.githubusercontent.com/Jaibw/prometheus/master/prometheus-local.
 ./prometheus  --config.file="prometheus.yml" --web.listen-address="0.0.0.0:PORT"
 
 Open Chrome http://PublicIPv4DNS:PORT 
+
+-------------------------------------------------
+Install Prometheus nad Grafana 
+-------------------------------------------------
+sudo apt update 
+sudo apt install -y prometheus
+sudo service prometheus status                 # press q for exit 
+sudo service prometheus-node-exporter status   # press q for exit 
+
+sudo apt-get install -y adduser libfontconfig1
+wget https://dl.grafana.com/enterprise/release/grafana-enterprise_8.5.5_amd64.deb
+sudo dpkg -i grafana-enterprise_8.5.5_amd64.deb
+sudo service grafana-server start
+sudo service grafana-server status 
+
+Open Chrome http://PublicIPv4DNS:3000
+User: admin
+Password: admin 
