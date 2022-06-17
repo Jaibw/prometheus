@@ -90,3 +90,27 @@ Docker - Grafana
 sudo docker run -d --name=grafana-NAME -p PORT:3000 grafana/grafana-enterprise
 sudo docker ps 
 Open Chrome http://PublicIPv4DNS:PORT 
+
+
+-------------------------------------------------
+Grafana cli
+-------------------------------------------------
+apt update 
+sudo apt-get install -y adduser libfontconfig1
+wget https://dl.grafana.com/enterprise/release/grafana-enterprise_8.5.5_amd64.deb
+sudo dpkg -i grafana-enterprise_8.5.5_amd64.deb
+sudo service grafana-server start
+sudo service grafana-server status 
+Open Chrome http://PublicIPv4DNS:3000
+sudo su 
+grafana-cli -v
+grafana-cli plugins  ls 
+grafana-cli plugins install <<pick a name from the list>>
+service grafana-server restart
+## check your plugins in the front-end 
+grafana-cli plugins remove <<pick a name from the list>>
+service grafana-server restart
+## check your plugins in the front-end 
+grafana-cli admin
+grafana-cli admin reset-admin-password alpha
+ls /var/lib/grafana/plugins
